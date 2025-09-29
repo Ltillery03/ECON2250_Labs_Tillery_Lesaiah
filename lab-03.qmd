@@ -114,8 +114,10 @@ Type line below here:
 *A subsample of the 2019 Current Population Survey (CPS)* \AddToHookNext{env/Highlighting/begin}{\small}
 
 ```{r, echo=T, eval=T}
-#| label: cps data
-cps%>%glimpse()
+#label: cps data
+library(dplyr)
+cps %>% glimpse()
+
 ```
 
 ### Categorical Data: Example
@@ -395,7 +397,15 @@ There is website that host a collection of beautiful charts you might want to vi
 *Visualization replication 1* \AddToHookNext{env/Highlighting/begin}{\small}
 
 ```{r, echo=T, eval=T}
-#| label: r graph gallery replication 1
+#| label: r graph gallery replication 1 
+#ggplot2 scatterplot with rug
+library(ggplot2)
+
+head(iris)
+
+ggplot(data=cps, aes(x=Sepal.Length, Petal.Length)) +
+  geom_point() +
+  geom_rug(col="steelblue",alpha=0.1, size=1.5)
 
 ```
 
@@ -403,6 +413,20 @@ There is website that host a collection of beautiful charts you might want to vi
 
 ```{r, echo=T, eval=T}
 #| label: r graph gallery replication 2
+
+library(ggplot2)
+ 
+head(iris)
+ 
+ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width)) + 
+    geom_point(
+        color="orange",
+        fill="#69b3a2",
+        shape=21,
+        alpha=0.5,
+        size=6,
+        stroke = 2
+        )
 
 ```
 
