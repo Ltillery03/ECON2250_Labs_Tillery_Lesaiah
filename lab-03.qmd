@@ -375,7 +375,7 @@ legend("topright", legend=c("Black","Other","White"), lty=c(1,3,2), inset=0.01)
 **Weekly earnings versus years of education**
 
 ```{r, echo=T, eval=T}
-#| label: scatter earnings years
+#| label: scatter earnings year
 # scatterplotofweeklyearningsversusyearsofeducation
 plot(cps$educ, cps$earnwk,xlab="Education",ylab="Weekly earnings($)")
 ```
@@ -385,7 +385,7 @@ plot(cps$educ, cps$earnwk,xlab="Education",ylab="Weekly earnings($)")
 **Weekly earnings vs years of education vs weekly hours worked**
 
 ```{r, echo=T, eval=T}
-#| label: expanded scatter
+#| label: expanded scatte
 # expandedscatterplot,withweeklyearnings,yearsofeducation,andweeklyhoursworked
 plot(cps[,c("educ","earnwk","hrslastwk")])
 ```
@@ -397,43 +397,25 @@ There is website that host a collection of beautiful charts you might want to vi
 *Visualization replication 1* \AddToHookNext{env/Highlighting/begin}{\small}
 
 ```{r, echo=T, eval=T}
-#| label: r graph gallery replication 1 
-#ggplot2 scatterplot with rug
-library(ggplot2)
+#| label: boxplot
 
-head(iris)
-
-ggplot(data=cps, aes(x=Sepal.Length, Petal.Length)) +
-  geom_point() +
-  geom_rug(col="steelblue",alpha=0.1, size=1.5)
+plot(cps[,c("lfstatus","age")])
 
 ```
 
 *Visualization replication 2* \AddToHookNext{env/Highlighting/begin}{\small}
 
 ```{r, echo=T, eval=T}
-#| label: r graph gallery replication 2
+#| label: scatter earnings years
 
-library(ggplot2)
- 
-head(iris)
- 
-ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width)) + 
-    geom_point(
-        color="orange",
-        fill="#69b3a2",
-        shape=21,
-        alpha=0.5,
-        size=6,
-        stroke = 2
-        )
+plot(cps$educ, cps$earnwk,xlab="Education",ylab="Weekly earnings($)")
 
 ```
 
 # Wrapping up
 
 ::: render-commit-push
-**Team Member 1**: Render the document and confirm that the changes are visible in the PDF. Then, commit (with an informative commit message) both the .qmd and PDF documents, and finally push the changes to GitHub. Make sure to commit and push all changed files so that your Git pane is empty afterwards.
+**Team Member 1 (Jaden Ward)**: Render the document and confirm that the changes are visible in the PDF. Then, commit (with an informative commit message) both the .qmd and PDF documents, and finally push the changes to GitHub. Make sure to commit and push all changed files so that your Git pane is empty afterwards.
 :::
 
 ::: pull
